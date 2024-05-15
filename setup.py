@@ -1,0 +1,19 @@
+import setuptools
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+setuptools.setup(
+    name="micrograd",
+    version="0.1.0",
+    author="kartik prajapati",
+    author_email="kartikprajapati033@gmail.com",
+    description="A tiny scalar-valued autograd engine with a small PyTorch-like neural network library on top.",
+    url="https://github.com/kartik033/micrograd",
+    packages=setuptools.find_packages(),
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "Operating System :: OS Independent",
+    ],
+    python_requires='>=3.6',
+)
