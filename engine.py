@@ -50,6 +50,17 @@ class Value:
         out._backward = _backward
 
         return out
+    def tanh(self):
+      x = self.data
+      t = (math.exp(2*x) - 1) / (math.exp(2*x) + 1)
+      out = Value(t if t >= 0 else 0, (self,), "tanh")  # Set negative values to 0
+
+      def _backward():
+          derivative = 1 - t**2 if t >= 0 else 0  # Use 0 derivative for negative inputs
+          self.grad += derivative * out.grad
+      out._backward = _backward
+
+      return out
 
     def backward(self):
 
